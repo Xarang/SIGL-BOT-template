@@ -7,11 +7,9 @@ from dotenv import load_dotenv
 
 from name import handle_name
 from count import handle_count
-<<<<<<< HEAD
 from admin import handle_admin
-=======
 from xkcd import handle_xkcd
->>>>>>> d4806928b788457892dd828b6dad97ac963392d5
+from mute import handle_mute
 
 load_dotenv()
 intents = discord.Intents.default()
@@ -25,6 +23,7 @@ bot.add_command(handle_name)
 bot.add_command(handle_count)
 bot.add_command(handle_admin)
 bot.add_command(handle_xkcd)
+bot.add_command(handle_mute)
 bot.run(os.getenv('DISCORD_BOT_TOKEN'))
 
 #client.run(os.getenv('DISCORD_BOT_TOKEN'))

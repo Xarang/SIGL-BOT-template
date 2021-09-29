@@ -11,6 +11,7 @@ from count import handle_count
 load_dotenv()
 intents = discord.Intents.default()
 intents.members = True
+intents.presences = True
 client = discord.Client(intents=intents)
 
 

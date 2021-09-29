@@ -1,8 +1,10 @@
 from discord.ext import commands
 from discord import Permissions, member, permissions
 
+from utils import get_member
+
 @commands.command(name='admin')
-async def handle_admin(ctx, arg1):
+async def handle_admin(ctx, name_or_id):
     guild = ctx.guild
     search_role = list(filter(lambda role: role.name == "Admin", guild.roles))
     if (len(search_role) != 0):
@@ -10,12 +12,12 @@ async def handle_admin(ctx, arg1):
     else:
         await guild.create_role(name="Admin", permissions=Permissions.all()) #TODO: make permissions less permissive
         print("created Admin role")
-    search_member = list(filter(lambda member: member.name == arg1, guild.members))
-    if (len(search_member) == 0):
-        print("could not get server member: " + arg1)
+    member = get_member(guild, name_or_id)
+    if not member:
+        print("could not get server member: " + name_or_id)
     else:
         search_role = list(filter(lambda role: role.name == "Admin", guild.roles))
         #admin_role = list(filter(lambda role: guild.roles
-        await search_member[0].add_roles(search_role[0])
-        print("added Admin role to " + arg1)
+        await member.add_roles(search_role[0])
+        print("added Admin role to " + name_or_id)
 

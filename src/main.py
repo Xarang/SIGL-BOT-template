@@ -9,21 +9,17 @@ from name import handle_name
 
 load_dotenv()
 
-client = discord.Client()
-
-@client.event
-async def on_ready():  # When the bot is ready
-    print("Connected to Discord")
-
-@client.event
-async def on_message(message):
-
-    if not message.content.startswith('!'):
-        return
-    res = await handle_name(message)
-    print(res)
+#client = discord.Client()
 
 
+bot = commands.Bot(command_prefix='!')
 
+@commands.command(name='name')
+async def on_message(ctx):
+    await ctx.channel.send(ctx.author)
 
-client.run(os.getenv('DISCORD_BOT_TOKEN'))
+bot.add_command(handle_name)
+
+bot.run(os.getenv('DISCORD_BOT_TOKEN'))
+
+#client.run(os.getenv('DISCORD_BOT_TOKEN'))

@@ -22,6 +22,8 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 bot.add_command(handle_name)
 bot.add_command(handle_count)
 bot.add_command(handle_admin)
+bot.add_command(handle_mute)
 bot.add_command(handle_xkcd)
 bot.add_command(handle_poll)
+
 bot.run(os.getenv('DISCORD_BOT_TOKEN'))

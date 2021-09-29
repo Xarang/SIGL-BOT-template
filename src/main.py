@@ -13,20 +13,15 @@ intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
 
-@client.event
-async def on_ready():  # When the bot is ready
-    print("Connected to Discord")
 
-@client.event
-async def on_message(message):
+bot = commands.Bot(command_prefix='!', intents=intents)
 
-    if not message.content.startswith('!'):
-        return
-    res = await handle_name(message)
-    res = await handle_count(message, client)
-    print(res)
+@commands.command(name='name')
+async def on_message(ctx):
+    await ctx.channel.send(ctx.author)
 
+bot.add_command(handle_name)
+bot.add_command(handle_count)
+bot.run(os.getenv('DISCORD_BOT_TOKEN'))
 
-
-
-client.run(os.getenv('DISCORD_BOT_TOKEN'))
+#client.run(os.getenv('DISCORD_BOT_TOKEN'))

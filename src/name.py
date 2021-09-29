@@ -1,6 +1,5 @@
+from discord.ext import commands
 
-async def handle_name(message):
-    if message.content == '!name':
-        await message.channel.send(message.author)
-        return True
-    return False
+@commands.command(name='name')
+async def handle_name(ctx):
+    await ctx.channel.send(ctx.author)

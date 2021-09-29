@@ -22,7 +22,7 @@ async def handle_poll(ctx, *args):
         return 
     question, returnValue = parseQuestion(args)
     if returnValue == -1:
-        ctx.send("error, bad format")
+        await ctx.send("error, bad format")
 
     msg = await ctx.send("@here\n" + question)
     if len(args) == 1:

@@ -8,14 +8,12 @@ from dotenv import load_dotenv
 from name import handle_name
 from count import handle_count
 from xkcd import handle_xkcd
+from poll import handle_poll
 
 load_dotenv()
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
-
-client = discord.Client(intents=intents)
-
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -26,6 +24,5 @@ async def on_message(ctx):
 bot.add_command(handle_name)
 bot.add_command(handle_count)
 bot.add_command(handle_xkcd)
+bot.add_command(handle_poll)
 bot.run(os.getenv('DISCORD_BOT_TOKEN'))
-
-#client.run(os.getenv('DISCORD_BOT_TOKEN'))

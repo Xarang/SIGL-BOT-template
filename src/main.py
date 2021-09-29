@@ -1,5 +1,6 @@
 import os
 import discord
+from discord import message
 from discord.ext import commands
 
 from dotenv import load_dotenv
@@ -28,8 +29,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():  # When the bot is ready
-    print("I'm in")
-    print(client.user)  # Prints the bot's username and identifier
+    print("Connected to Discord")
 
 @client.event
 async def on_message(message):
@@ -38,8 +38,8 @@ async def on_message(message):
         return
 
     author = message.author
-    if message.content.startswith('!admin'):
-        await message.channel.send(author.user)
+    if message.content == '!name':
+        await message.channel.send(author)
 
 
 client.run(os.getenv('DISCORD_BOT_TOKEN'))

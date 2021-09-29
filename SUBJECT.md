@@ -51,7 +51,7 @@
 ### It's all fun and games
 [X] When typing `!xkcd`, your post should post a random comic from https://xkcd.com
 
-[ ] When typing `!poll <question> <choice1?> <choice2?>, ... <choice n?> `, your bot should post a @here mention followed by your question. If none of the choice arguments are filled, your bot should by default react with one :thumbsup: emoji and one :thumbsdown: emoji in order to allow people to vote. If at least two choices arguments are filled, the bot should react with the appropriate emojis. Any other call should result in an error
+[X] When typing `!poll <question> <choice1?> <choice2?>, ... <choice n?> `, your bot should post a @here mention followed by your question. If none of the choice arguments are filled, your bot should by default react with one :thumbsup: emoji and one :thumbsdown: emoji in order to allow people to vote. If at least two choices arguments are filled, the bot should react with the appropriate emojis. Any other call should result in an error
 - Example : `!poll "Should we get burgers or salad tonight ?" :hamburger: :salad:`
 - Extra-mile : Define a time-limit for the poll. When the limit has been reached, bot will bot a message with the final result and delete the original poll message
 
